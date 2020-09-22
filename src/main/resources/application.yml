@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: NRDEMO-1
+server:
+  port: 9090
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

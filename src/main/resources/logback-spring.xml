@@ -1,0 +1,24 @@
+<configuration>
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="com.newrelic.logging.logback.NewRelicEncoder" />
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>/Users/kumarghs/camellogs/NRDEMO-1.log</file>
+		<!-- encoder changed -->
+		<encoder class="com.newrelic.logging.logback.NewRelicEncoder" />
+	</appender>
+	<appender name="ASYNC"
+		class="com.newrelic.logging.logback.NewRelicAsyncAppender">
+		<appender-ref ref="FILE" />
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="ASYNC" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<!-- <root level="trace"> -->
+	<!-- <appender-ref ref="STDOUT" /> -->
+	<!-- </root> -->
+</configuration>
