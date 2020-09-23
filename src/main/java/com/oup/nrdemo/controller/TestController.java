@@ -11,7 +11,7 @@ public class TestController {
 	@GetMapping("/test")
 	public String test() throws Exception {
 		logger.info("-------");
-		if (true) {
+		if (false) {
 			throw new Exception("Crapped");
 		} else {
 			return "Hello!!!";

@@ -19,10 +19,25 @@ public class DemoRoute extends RouteBuilder{
 		 */
 		// .to("stream:out");
 		
-		from("file:/Users/kumarghs/camelip?move=.done").routeId("id_FileRoute")
+		/*
+		 * from("file:C:\\JavaTest?move=.done").routeId("id_FileRoute")
+		 * .convertBodyTo(String.class) .log(LoggingLevel.INFO, logger,"${body}")
+		 * .to("file:C:\\JavaTest\\camelop");
+		 */
+		
+		from("activemq:SPS-PURCHASE-ORDERS-DEV").routeId("id_PickToAMQ")
 		.convertBodyTo(String.class)
 		.log(LoggingLevel.INFO, logger,"${body}")
-		.to("file:/Users/kumarghs/camelop");;
+		.to("direct:secondRoute");
+		
+		from("direct:secondRoute").routeId("id_PickFromDirect")
+		.process("springManagedUppercaseProcessor")
+		.log(LoggingLevel.INFO, logger,"---${body}")
+		.to("activemq:SPS-SALES-FORECAST-DEV");
+		
+		from("activemq:SPS-SALES-FORECAST-DEV").routeId("id_PickFromSPS-SALES-FORECAST-DEVQ")
+		.convertBodyTo(String.class)
+		.log(LoggingLevel.INFO, logger,"Picked from SPS-SALES-FORECAST-DEV -- ${body}");
 		
 	}
 
