@@ -52,6 +52,34 @@
 			<version>3.5.0</version>
 			<!-- use the same version as your Camel core version -->
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-stream</artifactId>
+			<version>3.5.0</version>
+			<!-- use the same version as your Camel core version -->
+		</dependency>
+		<dependency>
+			<groupId>org.jolokia</groupId>
+			<artifactId>jolokia-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.hawt/hawtio-springboot -->
+		<dependency>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-springboot</artifactId>
+			<version>2.10.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-management</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.newrelic.agent.java/newrelic-api -->
+		<dependency>
+			<groupId>com.newrelic.agent.java</groupId>
+			<artifactId>newrelic-api</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
 
 
 		<dependency>

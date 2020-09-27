@@ -1,10 +1,10 @@
 spring:
   application:
     name: NRDEMO-1
-  activemq:
-    broker-url : tcp://localhost:61616
-    user: servicemix
-    password: servicemix@1234
+  #activemq:
+   # broker-url : tcp://localhost:61616
+    #user: servicemix
+    #password: servicemix@1234
      
 server:
   port: 9090
@@ -13,5 +13,13 @@ management:
     web:
       exposure:
         include: "*"
+  
+endpoints:
+  jolokia:
+    sensitive : false
+hawtio:
+  authenticationEnabled: false
+  proxyAllowlist: localhost
+  
 
   

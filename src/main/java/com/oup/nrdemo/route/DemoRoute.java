@@ -12,11 +12,13 @@ public class DemoRoute extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		// TODO Auto-generated method stub
-		/*
-		 * from("timer://foo?repeatCount=1000").routeId("id_SampleRouteRouteForNR")
-		 * .log(LoggingLevel.INFO, logger,
-		 * "Route started .....................................");
-		 */
+		
+		  from("timer://foo?repeatCount=10").routeId("id_SampleRouteRouteForNR")
+		  .to("direct:fromOne");
+		  
+		  from("direct:fromOne")
+		  .to("stream:out");
+		 
 		// .to("stream:out");
 		
 		/*
@@ -25,7 +27,7 @@ public class DemoRoute extends RouteBuilder{
 		 * .to("file:C:\\JavaTest\\camelop");
 		 */
 		
-		from("activemq:SPS-PURCHASE-ORDERS-DEV").routeId("id_PickToAMQ")
+		/*from("activemq:SPS-PURCHASE-ORDERS-DEV").routeId("id_PickToAMQ")
 		.convertBodyTo(String.class)
 		.log(LoggingLevel.INFO, logger,"${body}")
 		.to("direct:secondRoute");
@@ -37,7 +39,7 @@ public class DemoRoute extends RouteBuilder{
 		
 		from("activemq:SPS-SALES-FORECAST-DEV").routeId("id_PickFromSPS-SALES-FORECAST-DEVQ")
 		.convertBodyTo(String.class)
-		.log(LoggingLevel.INFO, logger,"Picked from SPS-SALES-FORECAST-DEV -- ${body}");
+		.log(LoggingLevel.INFO, logger,"Picked from SPS-SALES-FORECAST-DEV -- ${body}");*/
 		
 	}
 
